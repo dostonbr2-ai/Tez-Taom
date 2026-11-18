@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oshpaz Tavsiyasi — TezTaom | Aqlli Yordamchi</title>
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./css/tokens.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="bg-[#FAF7F0] text-[#173B2D] antialiased">
+
+    <header class="w-full max-w-[1140px] mx-auto px-4 sm:px-6 pt-5 pb-4">
+        <div class="flex items-center justify-between gap-3 sm:gap-4">
+
+            <div class="flex items-center gap-6 xl:gap-8">
+                <a href="index.html" class="flex items-center gap-3 group shrink-0">
+                    <img src="./images/teztaom_horizontal_logo.png" alt="TezTaom Logo" class="h-8 sm:h-9 w-auto object-contain transition group-hover:scale-105">
+                </a>
+
+                <nav class="hidden md:flex items-center gap-5 lg:gap-6 text-sm font-medium whitespace-nowrap">
+                    <a href="menyu.html" class="text-[#F07B36] font-semibold hover:text-[#de6e2c] transition">Menyu</a>
+                    <a href="index.html#kategoriyalar" class="text-[#173B2D] hover:text-[#F07B36] transition">Kategoriyalar</a>
+                    <a href="ai-tavsiya.html" class="text-[#173B2D] hover:text-[#F07B36] transition flex items-center gap-1">
+                        <span class="text-[#F07B36]">✦</span> Tavsiya
+                    </a>
+
+                    <div class="relative group">
+                        <button class="text-[#173B2D] hover:text-[#F07B36] transition flex items-center gap-1 cursor-pointer bg-transparent border-none p-0 text-sm font-medium">
+                            <span>Yana</span>
+                            <i class="bi bi-chevron-down text-[11px] transition duration-200 group-hover:rotate-180"></i>
+                        </button>
+                        <div class="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                            <div class="w-52 bg-white rounded-2xl shadow-xl border border-[#E8EDE9] p-2 space-y-0.5 text-xs font-semibold text-[#173B2D]">
+                                <a href="aksiyalar.html" class="flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-[#FAF7F0] hover:text-[#F07B36] transition">
+                                    <span class="w-2 h-2 rounded-full bg-[#F07B36]"></span> Aksiyalar
+                                </a>
+                                <a href="restoranlar.html" class="flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-[#FAF7F0] hover:text-[#F07B36] transition">
+                                    <i class="bi bi-geo-alt text-[#F07B36]"></i> Filiallar
+                                </a>
+                                <a href="yetkazib-berish.html" class="flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-[#FAF7F0] hover:text-[#F07B36] transition">
+                                    <i class="bi bi-bicycle text-[#F07B36]"></i> Yetkazib berish
+                                </a>
+                                <a href="biz-haqimizda.html" class="flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-[#FAF7F0] hover:text-[#F07B36] transition">
+                                    <i class="bi bi-info-circle text-[#F07B36]"></i> Biz haqimizda
+                                </a>
+                                <a href="fikrlar.html" class="flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-[#FAF7F0] hover:text-[#F07B36] transition">
+                                    <i class="bi bi-chat-quote text-[#F07B36]"></i> Sharhlar
+                                </a>
+                                <a href="aloqa.html" class="flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-[#FAF7F0] hover:text-[#F07B36] transition">
+                                    <i class="bi bi-telephone text-[#F07B36]"></i> Aloqa
+                                </a>
+                                <a href="vakansiyalar.html" class="flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-[#FAF7F0] hover:text-[#F07B36] transition">
+                                    <i class="bi bi-briefcase text-[#F07B36]"></i> Vakansiyalar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+                <div class="relative hidden sm:block w-36 md:w-44 lg:w-56">
+                    <i class="bi bi-search absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-xs"></i>
+                    <input
+                        type="text"
+                        id="headerSearchInput"
+                        placeholder="Taom nomini kiriting..."
+                        class="w-full bg-white border border-[#E8ECE6] rounded-full pl-9 pr-4 py-2 text-xs md:text-sm text-[#173B2D] placeholder-gray-400 focus:outline-none focus:border-[#F07B36] focus:ring-1 focus:ring-[#F07B36] transition shadow-xs"
+                    >
+                </div>
+
+                <a href="sevimlilar.html" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white border border-[#E8ECE6] flex items-center justify-center text-[#173B2D] hover:text-[#F07B36] hover:bg-gray-50 transition shadow-xs relative shrink-0" title="Sevimli taomlar">
+                    <i class="bi bi-heart text-sm sm:text-base"></i>
+                    <span id="favoritesBadge" class="hidden absolute -top-1 -right-1 bg-[#F07B36] text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+                </a>
+
+                <a href="profil.html" class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white border border-[#E8ECE6] flex items-center justify-center text-[#173B2D] hover:bg-gray-50 transition shadow-xs shrink-0" title="Profil">
+                    <i class="bi bi-person text-base sm:text-lg"></i>
+                </a>
+
+                <button class="open-cart-btn btn-primary px-3.5 py-2 sm:px-5 sm:py-2.5 flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-semibold shadow-xs cursor-pointer shrink-0">
+                    <div class="relative flex items-center">
+                        <i class="bi bi-bag text-sm sm:text-base"></i>
+                        <span class="cart-badge hidden absolute -top-1.5 -right-2 bg-[#F07B36] text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+                    </div>
+                    <span>Savatcha</span>
+                </button>
+
+                <button onclick="toggleMobileNav()" class="md:hidden w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white border border-[#E8ECE6] flex items-center justify-center text-[#173B2D] hover:bg-gray-50 transition shadow-xs cursor-pointer shrink-0" title="Menyuni ochish">
+                    <i class="bi bi-list text-xl"></i>
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+    <div id="mobileNavBackdrop" onclick="toggleMobileNav()" class="mobile-nav-backdrop"></div>
+    <aside id="mobileNavDrawer" class="mobile-nav-drawer">
+        <div>
+            <div class="flex items-center justify-between pb-4 border-b border-gray-200">
+                <a href="index.html" class="inline-block">
+                    <img src="./images/teztaom_horizontal_logo.png" alt="TezTaom Logo" class="h-8 w-auto object-contain">
+                </a>
+                <button onclick="toggleMobileNav()" class="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:text-black">
+                    <i class="bi bi-x-lg text-xs"></i>
+                </button>
+            </div>
+
+            <nav class="mt-5 flex flex-col gap-1 font-semibold text-sm">
+                <a href="menyu.html" class="px-3.5 py-2.5 rounded-xl hover:bg-white hover:text-[#F07B36] transition flex items-center gap-3">
+                    <i class="bi bi-journal-text text-[#F07B36]"></i> Menyu
+                </a>
+                <a href="aksiyalar.html" class="px-3.5 py-2.5 rounded-xl hover:bg-white hover:text-[#F07B36] transition flex items-center gap-3">
+                    <i class="bi bi-percent text-[#F07B36]"></i> Aksiyalar
+                </a>
+                <a href="restoranlar.html" class="px-3.5 py-2.5 rounded-xl hover:bg-white hover:text-[#F07B36] transition flex items-center gap-3">
+                    <i class="bi bi-geo-alt text-[#F07B36]"></i> Filiallar
+                </a>
+                <a href="yetkazib-berish.html" class="px-3.5 py-2.5 rounded-xl hover:bg-white hover:text-[#F07B36] transition flex items-center gap-3">
+                    <i class="bi bi-bicycle text-[#F07B36]"></i> Yetkazib berish
+                </a>
+                <a href="biz-haqimizda.html" class="px-3.5 py-2.5 rounded-xl hover:bg-white hover:text-[#F07B36] transition flex items-center gap-3">
+                    <i class="bi bi-info-circle text-[#F07B36]"></i> Biz haqimizda
+                </a>
+                <a href="fikrlar.html" class="px-3.5 py-2.5 rounded-xl hover:bg-white hover:text-[#F07B36] transition flex items-center gap-3">
+                    <i class="bi bi-star text-[#F07B36]"></i> Sharhlar
+                </a>
+                <a href="sevimlilar.html" class="px-3.5 py-2.5 rounded-xl hover:bg-white hover:text-[#F07B36] transition flex items-center gap-3">
+                    <i class="bi bi-heart text-[#F07B36]"></i> Sevimli taomlar
+                </a>
+                <a href="aloqa.html" class="px-3.5 py-2.5 rounded-xl hover:bg-white hover:text-[#F07B36] transition flex items-center gap-3">
+                    <i class="bi bi-telephone text-[#F07B36]"></i> Aloqa
+                </a>
+                <button onclick="toggleMobileNav(); toggleAiChat();" class="text-left px-3.5 py-2.5 rounded-xl bg-[#DEEADC]/60 text-[#173B2D] font-bold hover:bg-[#DEEADC] transition flex items-center gap-2.5 mt-2">
+                    <span class="text-[#F07B36]">✦</span> Oshpaz maslahati
+                </button>
+            </nav>
+        </div>
+
+        <div class="pt-5 border-t border-gray-200 text-xs text-[#7A9185] space-y-2">
+            <div class="font-bold text-[#173B2D] flex items-center gap-2">
+                <i class="bi bi-telephone-fill text-[#F07B36]"></i> +998 (71) 200-00-20
+            </div>
+            <div class="text-[11px]">Har kuni: 09:00 — 23:00</div>
+            <div class="inline-flex items-center gap-1.5 bg-[#DEEADC] text-[#173B2D] text-[10px] font-bold px-2.5 py-1 rounded-full mt-1">
+                <i class="bi bi-shield-check text-emerald-700"></i> 100% Halol standart
+            </div>
+        </div>
+    </aside>
+
+<main class="w-full max-w-[1140px] mx-auto px-4 sm:px-6 mt-4 mb-16">
+
+        <div class="bg-[#173B2D] text-white rounded-[32px] p-8 md:p-12 mb-8 relative overflow-hidden shadow-lg">
+            <div class="max-w-2xl relative z-10">
+                <span class="inline-flex items-center gap-2 bg-[#F07B36] text-white text-[11px] font-bold px-3.5 py-1 rounded-full mb-3 uppercase tracking-wider">
+                    ✦ AQLLI ALGORITM
+                </span>
+                <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+                    Bugun siz uchun <span class="text-[#F07B36]">nima tanlaymiz?</span>
+                </h1>
+                <p class="text-[#A2BAAF] text-xs sm:text-sm mt-3 font-normal leading-relaxed">
+                    Menyudagi o'nlab taomlar orasida adashib qoldingizmi? Byudjetingiz, kayfiyatingiz va kishilar sonini belgilang — aqlli algoritm eng muvozanatli va mazali to'plamni saralab beradi.
+                </p>
+            </div>
+
+            <div class="absolute right-0 bottom-0 translate-x-10 translate-y-10 opacity-20 pointer-events-none text-9xl">
+                ✦
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+            <div class="lg:col-span-5 bg-white rounded-[28px] border border-[#E8EDE9] p-6 sm:p-7 shadow-xs">
+                <div class="flex items-center gap-2 pb-4 border-b border-gray-100 mb-5">
+                    <div class="w-8 h-8 rounded-lg bg-[#FAF7F0] text-[#F07B36] flex items-center justify-center text-base">
+                        <i class="bi bi-sliders"></i>
+                    </div>
+                    <h3 class="font-extrabold text-base text-[#173B2D]">Tanlov parametrlari</h3>
+                </div>
+
+                <form id="aiWizardForm" onsubmit="generatePageRecommendation(event)" class="space-y-5">
+
+                    <div>
+                        <label class="block text-xs font-bold text-[#173B2D] uppercase tracking-wider mb-2">
+                            1. Necha kishi uchun buyurtma?
+                        </label>
+                        <div class="grid grid-cols-4 gap-2" id="personsGroup">
+                            <button type="button" onclick="selectPerson(1, this)" class="person-btn py-2 text-xs font-bold rounded-xl border border-gray-200 bg-[#173B2D] text-white">1 kishi</button>
+                            <button type="button" onclick="selectPerson(2, this)" class="person-btn py-2 text-xs font-bold rounded-xl border border-gray-200 bg-white text-[#173B2D]">2 kishi</button>
+                            <button type="button" onclick="selectPerson(3, this)" class="person-btn py-2 text-xs font-bold rounded-xl border border-gray-200 bg-white text-[#173B2D]">3-4 kishi</button>
+                            <button type="button" onclick="selectPerson(6, this)" class="person-btn py-2 text-xs font-bold rounded-xl border border-gray-200 bg-white text-[#173B2D]">5+ kishi</button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <label class="text-xs font-bold text-[#173B2D] uppercase tracking-wider">
+                                2. Taxminiy byudjet (har bir kishiga)
+                            </label>
+                            <span id="budgetValueLabel" class="text-xs font-extrabold text-[#F07B36]">50,000 so'm</span>
+                        </div>
+                        <input
+                            type="range"
+                            id="budgetRangeInput"
+                            min="25000"
+                            max="150000"
+                            step="5000"
+                            value="50000"
+                            oninput="updateBudgetSlider(this.value)"
+                            class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-[#F07B36]"
+                        >
+                        <div class="flex justify-between text-[10px] text-[#7A9185] mt-1 font-medium">
+                            <span>25 000 so'm</span>
+                            <span>80 000 so'm</span>
+                            <span>150 000 so'm</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-[#173B2D] uppercase tracking-wider mb-2">
+                            3. Qanday taom xohlaysiz?
+                        </label>
+                        <div class="grid grid-cols-2 gap-2" id="moodGroup">
+                            <button type="button" onclick="selectMood('milliy', this)" class="mood-btn p-3 rounded-2xl border border-gray-200 bg-[#173B2D] text-white text-left transition">
+                                <span class="block text-base">🇺🇿</span>
+                                <span class="block text-xs font-bold mt-1">Milliy an'anaviy</span>
+                                <span class="block text-[10px] opacity-75">Osh, manti, somsa</span>
+                            </button>
+
+                            <button type="button" onclick="selectMood('goshtli', this)" class="mood-btn p-3 rounded-2xl border border-gray-200 bg-white text-[#173B2D] text-left transition">
+                                <span class="block text-base">🥩</span>
+                                <span class="block text-xs font-bold mt-1">To'yimli go'shtli</span>
+                                <span class="block text-[10px] text-[#7A9185]">Qozon kabob, shashlik</span>
+                            </button>
+
+                            <button type="button" onclick="selectMood('issiq', this)" class="mood-btn p-3 rounded-2xl border border-gray-200 bg-white text-[#173B2D] text-left transition">
+                                <span class="block text-base">🍲</span>
+                                <span class="block text-xs font-bold mt-1">Qaynoq sho'rva</span>
+                                <span class="block text-[10px] text-[#7A9185]">Mastava, chuchvara</span>
+                            </button>
+
+                            <button type="button" onclick="selectMood('yengil', this)" class="mood-btn p-3 rounded-2xl border border-gray-200 bg-white text-[#173B2D] text-left transition">
+                                <span class="block text-base">🥗</span>
+                                <span class="block text-xs font-bold mt-1">Yengil & parhez</span>
+                                <span class="block text-[10px] text-[#7A9185]">Bahor salati, ko'katlar</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full btn-accent font-semibold py-3.5 text-sm flex items-center justify-center gap-2 shadow-md">
+                        <i class="bi bi-stars"></i>
+                        <span>Oshpaz Tavsiyasisini ko'rish</span>
+                    </button>
+                </form>
+            </div>
+
+            <div class="lg:col-span-7">
+                <div class="bg-white rounded-[28px] border border-[#E8EDE9] p-6 sm:p-8 shadow-xs">
+
+                    <div class="flex items-center justify-between pb-4 border-b border-gray-100 mb-6">
+                        <div>
+                            <span class="block text-[10px] font-bold text-[#F07B36] uppercase tracking-wider">SARALANGAN MENYU</span>
+                            <h2 class="text-xl sm:text-2xl font-extrabold text-[#173B2D]" id="resultComboTitle">
+                                Shohona Milliy Tushlik To'plami
+                            </h2>
+                        </div>
+                        <div class="text-right">
+                            <span class="block text-[11px] text-[#7A9185] font-medium">To'plam narxi:</span>
+                            <span class="text-xl sm:text-2xl font-extrabold text-[#F07B36]" id="resultComboPrice">
+                                89,000 so'm
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-[#DEEADC]/50 rounded-2xl border border-[#DEEADC] mb-6 flex items-start gap-3">
+                        <span class="text-[#173B2D] text-lg font-bold">✦</span>
+                        <p class="text-xs text-[#2C4338] leading-relaxed" id="aiExplanationText">
+                            Sizning byudjetingiz va xohishingiz asosida to'yimli an'anaviy To'y oshi, unga xush yoquvchi vitaminli Bahor salati va limonli ko'k choy uyg'unlashtirildi. Bu to'plam organizm uchun to'liq energiya beradi.
+                        </p>
+                    </div>
+
+                    <div id="aiComboDishesList" class="space-y-3 mb-6">
+
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row items-center gap-3 pt-4 border-t border-gray-100">
+                        <button onclick="addCurrentComboToCart()" class="w-full sm:flex-1 btn-primary py-3.5 text-center text-sm font-semibold flex items-center justify-center gap-2 shadow-md">
+                            <i class="bi bi-bag-plus"></i>
+                            <span>To'liq to'plamni savatchaga qo'shish</span>
+                        </button>
+                        <a href="menyu.html" class="w-full sm:w-auto px-5 py-3.5 rounded-full border border-gray-200 text-xs font-bold text-[#173B2D] hover:bg-gray-50 text-center transition">
+                            Boshqa taomlarni ko'rish
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="w-full bg-white border-t border-[#E8EDE9] mt-16 pt-14 pb-10">
+        <div class="max-w-[1140px] mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 pb-10 border-b border-gray-100">
+
+                <div class="lg:col-span-2 space-y-4">
+                    <a href="index.html" class="inline-block">
+                        <img src="./images/teztaom_horizontal_logo.png" alt="TezTaom Logo" class="h-11 w-auto object-contain">
+                    </a>
+                    <p class="text-xs text-[#7A9185] max-w-sm leading-relaxed font-normal">
+                        Toshkent bo'yicha eng sara milliy va zamonaviy taomlarni 30 daqiqada yetkazib berish xizmati. Har bir taom saralangan halol mahsulotlardan tayyorlanadi.
+                    </p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <a href="https://t.me" target="_blank" class="w-9 h-9 rounded-xl bg-[#FAF7F0] text-[#173B2D] hover:bg-[#F07B36] hover:text-white flex items-center justify-center transition shadow-2xs">
+                            <i class="bi bi-telegram"></i>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" class="w-9 h-9 rounded-xl bg-[#FAF7F0] text-[#173B2D] hover:bg-[#F07B36] hover:text-white flex items-center justify-center transition shadow-2xs">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://facebook.com" target="_blank" class="w-9 h-9 rounded-xl bg-[#FAF7F0] text-[#173B2D] hover:bg-[#F07B36] hover:text-white flex items-center justify-center transition shadow-2xs">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h5 class="text-xs font-bold text-[#173B2D] uppercase tracking-wider mb-3">Menyu</h5>
+                    <ul class="space-y-2 text-xs text-[#7A9185]">
+                        <li><a href="menyu.html" class="hover:text-[#F07B36] transition">Barcha taomlar</a></li>
+                        <li><a href="menyu.html?search=osh" class="hover:text-[#F07B36] transition">Milliy taomlar</a></li>
+                        <li><a href="menyu.html?search=kabob" class="hover:text-[#F07B36] transition">Go'shtli taomlar</a></li>
+                        <li><a href="menyu.html?search=shorva" class="hover:text-[#F07B36] transition">Qaynoq sho'rvalar</a></li>
+                        <li><a href="menyu.html?search=salat" class="hover:text-[#F07B36] transition">Parhez salatlar</a></li>
+                        <li><a href="sevimlilar.html" class="hover:text-[#F07B36] transition">Sevimli taomlarim</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="text-xs font-bold text-[#173B2D] uppercase tracking-wider mb-3">Kompaniya</h5>
+                    <ul class="space-y-2 text-xs text-[#7A9185]">
+                        <li><a href="biz-haqimizda.html" class="hover:text-[#F07B36] transition">Biz haqimizda</a></li>
+                        <li><a href="aksiyalar.html" class="hover:text-[#F07B36] transition">Aksiyalar va chegirmalar</a></li>
+                        <li><a href="restoranlar.html" class="hover:text-[#F07B36] transition">Filiallar va restoranlar</a></li>
+                        <li><a href="yetkazib-berish.html" class="hover:text-[#F07B36] transition">Yetkazib berish shartlari</a></li>
+                        <li><a href="fikrlar.html" class="hover:text-[#F07B36] transition">Mijozlar fikrlari</a></li>
+                        <li><a href="vakansiyalar.html" class="hover:text-[#F07B36] transition">Kuryer / Oshpaz bo'lish</a></li>
+                        <li><a href="aloqa.html" class="hover:text-[#F07B36] transition">Qayta aloqa va savollar</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="text-xs font-bold text-[#173B2D] uppercase tracking-wider mb-3">Aloqa</h5>
+                    <ul class="space-y-2.5 text-xs text-[#7A9185]">
+                        <li class="flex items-center gap-2 font-bold text-[#173B2D]">
+                            <i class="bi bi-telephone-fill text-[#F07B36]"></i>
+                            <span>+998 (71) 200-00-20</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="bi bi-clock-fill text-[#F07B36]"></i>
+                            <span>Har kuni: 09:00 — 23:00</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="bi bi-geo-alt-fill text-[#F07B36]"></i>
+                            <span>Toshkent shahri bo'ylab</span>
+                        </li>
+                        <li class="pt-2">
+                            <span class="inline-flex items-center gap-1.5 bg-[#DEEADC]/60 text-[#173B2D] text-[10px] font-bold px-2.5 py-1 rounded-full">
+                                <i class="bi bi-shield-check text-emerald-700"></i> 100% Halol standart
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 text-xs text-[#7A9185]">
+                <p>© 2026 TezTaom. Barcha huquqlar himoyalangan. PDP Junior bitiruv loyihasi.</p>
+                <div class="flex items-center gap-4">
+                    <a href="aloqa.html" class="hover:text-[#F07B36]">Foydalanish qoidalari</a>
+                    <a href="aloqa.html" class="hover:text-[#F07B36]">Maxfiylik siyosati</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="drawerBackdrop" class="drawer-backdrop"></div>
+    <aside id="cartDrawer" class="cart-drawer">
+        <div class="p-6 border-b border-gray-100 flex items-center justify-between bg-[#FAF7F0]">
+            <div class="flex items-center gap-2">
+                <i class="bi bi-bag-check-fill text-xl text-[#F07B36]"></i>
+                <h3 class="font-extrabold text-lg text-[#173B2D]">Savatcha</h3>
+            </div>
+            <button id="closeCartDrawerBtn" class="w-9 h-9 rounded-full bg-white border border-gray-200 flex items-center justify-center text-gray-500 hover:text-black transition">
+                <i class="bi bi-x-lg text-sm"></i>
+            </button>
+        </div>
+        <div id="cartDrawerItems" class="flex-1 overflow-y-auto p-6"></div>
+        <div id="cartDrawerFooter" class="p-6 border-t border-gray-100 bg-white">
+            <div class="space-y-2 mb-4 text-xs">
+                <div class="flex justify-between text-[#7A9185]">
+                    <span>Taomlar narxi:</span>
+                    <span id="drawerSubtotal" class="font-bold text-[#173B2D]">0 so'm</span>
+                </div>
+                <div class="flex justify-between text-[#7A9185]">
+                    <span>Yetkazib berish (Toshkent):</span>
+                    <span id="drawerDelivery" class="font-bold text-[#173B2D]">15,000 so'm</span>
+                </div>
+                <div class="flex justify-between text-base font-extrabold text-[#173B2D] pt-2 border-t border-gray-100">
+                    <span>Jami to'lov:</span>
+                    <span id="drawerGrandTotal" class="text-[#F07B36]">0 so'm</span>
+                </div>
+            </div>
+            <a href="buyurtma.html" class="w-full btn-primary py-3.5 text-center text-sm font-semibold flex items-center justify-center gap-2 shadow-md">
+                <span>Buyurtmani rasmiylashtirish</span>
+                <span>→</span>
+            </a>
+        </div>
+    </aside>
+
+    <script src="./js/data.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/ai-chat.js"></script>
+    <script>
+        let selectedPersonCount = 1;
+        let selectedMoodValue = 'milliy';
+        let selectedBudgetValue = 50000;
+        let currentComboDishes = [];
+
+        function selectPerson(count, btnEl) {
+            selectedPersonCount = count;
+            document.querySelectorAll('#personsGroup .person-btn').forEach(b => {
+                b.className = 'person-btn py-2 text-xs font-bold rounded-xl border border-gray-200 bg-white text-[#173B2D]';
+            });
+            btnEl.className = 'person-btn py-2 text-xs font-bold rounded-xl border border-gray-200 bg-[#173B2D] text-white';
+        }
+
+        function selectMood(mood, btnEl) {
+            selectedMoodValue = mood;
+            document.querySelectorAll('#moodGroup .mood-btn').forEach(b => {
+                b.className = 'mood-btn p-3 rounded-2xl border border-gray-200 bg-white text-[#173B2D] text-left transition';
+            });
+            btnEl.className = 'mood-btn p-3 rounded-2xl border border-gray-200 bg-[#173B2D] text-white text-left transition';
+        }
+
+        function updateBudgetSlider(val) {
+            selectedBudgetValue = Number(val);
+            document.getElementById('budgetValueLabel').textContent = formatPrice(val);
+        }
+
+        function generatePageRecommendation(e) {
+            if (e) e.preventDefault();
+
+            let mainDish, saladDish, drinkDish;
+
+            if (selectedMoodValue === 'milliy') {
+                mainDish = TEZTAOM_DISHES[0];
+                saladDish = TEZTAOM_DISHES[4];
+                drinkDish = TEZTAOM_DISHES[11] || TEZTAOM_DISHES[5];
+            } else if (selectedMoodValue === 'goshtli') {
+                mainDish = TEZTAOM_DISHES[1];
+                saladDish = TEZTAOM_DISHES[9] || TEZTAOM_DISHES[4];
+                drinkDish = TEZTAOM_DISHES[11];
+            } else if (selectedMoodValue === 'issiq') {
+                mainDish = TEZTAOM_DISHES[5];
+                saladDish = TEZTAOM_DISHES[6] || TEZTAOM_DISHES[3];
+                drinkDish = TEZTAOM_DISHES[11];
+            } else {
+                mainDish = TEZTAOM_DISHES[4];
+                saladDish = TEZTAOM_DISHES[5];
+                drinkDish = TEZTAOM_DISHES[11];
+            }
+
+            currentComboDishes = [mainDish, saladDish, drinkDish].filter(Boolean);
+            const total = currentComboDishes.reduce((s, d) => s + d.price, 0) * (selectedPersonCount > 1 ? Math.min(selectedPersonCount, 2) : 1);
+
+            document.getElementById('resultComboTitle').textContent = `${selectedPersonCount} kishilik "${mainDish.title}" Maxsus To'plami`;
+            document.getElementById('resultComboPrice').textContent = formatPrice(total);
+
+            const container = document.getElementById('aiComboDishesList');
+            container.innerHTML = currentComboDishes.map(d => `
+                <div class="flex items-center justify-between p-3.5 bg-[#FAF7F0] rounded-2xl border border-[#E8EDE9]">
+                    <div class="flex items-center gap-3">
+                        <img src="${d.image}" alt="${d.title}" class="w-14 h-14 rounded-xl object-cover shrink-0">
+                        <div>
+                            <h4 class="text-sm font-bold text-[#173B2D]">${d.title}</h4>
+                            <span class="text-xs text-[#7A9185]">${d.prepTime} • ${d.calories}</span>
+                        </div>
+                    </div>
+                    <span class="text-sm font-extrabold text-[#173B2D]">${formatPrice(d.price)}</span>
+                </div>
+            `).join('');
+
+            showToast("Yangi Oshpaz tavsiyasisi tayyorlandi! ✦", "stars");
+        }
+
+        function addCurrentComboToCart() {
+            if (currentComboDishes.length === 0) return;
+            currentComboDishes.forEach(d => addToCart(d.id, 1));
+            openCartDrawer();
+            showToast("To'plam to'liq savatchaga qo'shildi!", "bag-check-fill");
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            generatePageRecommendation();
+        });
+</script>
+</body>
+</html>

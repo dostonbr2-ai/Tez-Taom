@@ -1,0 +1,82 @@
+:root {
+
+  --primitive-cream-50: #fdfcf9;
+  --primitive-cream-100: #faf7f0;
+  --primitive-cream-200: #f4ede0;
+
+  --primitive-sage-100: #eaf1e9;
+  --primitive-sage-200: #deeadc;
+  --primitive-sage-300: #cbdcc9;
+  --primitive-sage-500: #7a9185;
+  --primitive-sage-700: #486558;
+  --primitive-sage-900: #2c4338;
+
+  --primitive-green-800: #1d4636;
+  --primitive-green-900: #173b2d;
+  --primitive-green-950: #112c22;
+
+  --primitive-orange-400: #f59253;
+  --primitive-orange-500: #f07b36;
+  --primitive-orange-600: #de6e2c;
+
+  --primitive-tan-300: #e1d2bd;
+  --primitive-tan-400: #d4bf9f;
+
+  --primitive-white: #ffffff;
+  --primitive-gray-100: #f3f4f6;
+  --primitive-gray-200: #e8ece6;
+  --primitive-gray-300: #d1d5db;
+
+  --font-heading: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-card: 28px;
+  --radius-hero: 36px;
+  --radius-pill: 9999px;
+
+  --shadow-card: 0 4px 20px rgba(23, 59, 45, 0.05);
+  --shadow-card-hover: 0 16px 36px rgba(23, 59, 45, 0.12);
+  --shadow-dropdown: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+  --color-page-bg: var(--primitive-cream-100);
+  --color-hero-bg: var(--primitive-sage-200);
+  --color-banner-bg: var(--primitive-green-900);
+
+  --color-primary: var(--primitive-green-900);
+  --color-primary-hover: var(--primitive-green-950);
+  --color-primary-light: var(--primitive-sage-100);
+
+  --color-accent: var(--primitive-orange-500);
+  --color-accent-hover: var(--primitive-orange-600);
+
+  --color-text-title: var(--primitive-green-900);
+  --color-text-body: var(--primitive-sage-700);
+  --color-text-muted: var(--primitive-sage-500);
+  --color-text-subtle: #8c9e95;
+  --color-text-inverse: var(--primitive-white);
+
+  --color-card-bg: var(--primitive-white);
+  --color-border: var(--primitive-gray-200);
+  --color-border-card: rgba(232, 236, 230, 0.6);
+  --color-ring-tan: var(--primitive-tan-300);
+
+  --btn-primary-bg: var(--color-primary);
+  --btn-primary-color: var(--primitive-white);
+  --btn-accent-bg: var(--color-accent);
+  --btn-accent-color: var(--primitive-white);
+
+  --badge-popular-bg: var(--color-accent);
+  --badge-popular-color: var(--primitive-white);
+  --badge-rating-bg: rgba(255, 255, 255, 0.95);
+  --badge-rating-color: var(--color-text-title);
+}
