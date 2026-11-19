@@ -569,11 +569,11 @@ function initAiChatWidget() {
       </div>
 
       <div class="px-3.5 py-2.5 bg-white border-b border-[#E8EDE9] flex items-center gap-2 overflow-x-auto scrollbar-none text-xs">
-        <button onclick="openAiChatWithPrompt('2 kishiga mazali kombo to\\'plam')" class="ai-quick-chip">👥 2 kishiga kombo</button>
-        <button onclick="openAiChatWithPrompt('Go\\'shtli to\\'yimli taom tavsiya qil')" class="ai-quick-chip">🥩 Go'shtli taom</button>
-        <button onclick="openAiChatWithPrompt('Menga issiq sho\\'rva kerak')" class="ai-quick-chip">🍲 Issiq sho'rva</button>
-        <button onclick="openAiChatWithPrompt('50 000 so\\'mgacha tushlik top')" class="ai-quick-chip">💰 50 minggacha</button>
-        <button onclick="openAiChatWithPrompt('Parhez salat va choy tavsiya qil')" class="ai-quick-chip">🥗 Salat & Choy</button>
+        <button onclick="openAiChatWithPrompt('2 kishiga mazali kombo to\\'plam')" class="ai-quick-chip">2 kishiga kombo</button>
+        <button onclick="openAiChatWithPrompt('Go\\'shtli to\\'yimli taom tavsiya qil')" class="ai-quick-chip">Go'shtli taom</button>
+        <button onclick="openAiChatWithPrompt('Menga issiq sho\\'rva kerak')" class="ai-quick-chip">Issiq sho'rva</button>
+        <button onclick="openAiChatWithPrompt('50 000 so\\'mgacha tushlik top')" class="ai-quick-chip">50 minggacha</button>
+        <button onclick="openAiChatWithPrompt('Parhez salat va choy tavsiya qil')" class="ai-quick-chip">Salat va choy</button>
       </div>
 
       <div id="aiChatMessages" class="ai-chat-messages"></div>
