@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tizimga kirish — TezTaom</title>
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./css/tokens.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="bg-[#FAF7F0] text-[#173B2D] min-h-screen flex flex-col justify-between antialiased">
+
+    <header class="w-full max-w-[1140px] mx-auto px-4 sm:px-6 pt-6 pb-4">
+        <div class="flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <img src="./images/teztaom_horizontal_logo.png" alt="TezTaom Logo" class="h-8 sm:h-9 w-auto object-contain transition group-hover:scale-105">
+            </a>
+            <a href="index.html" class="inline-flex items-center gap-2 text-xs sm:text-sm font-medium text-[#7B7266] hover:text-[#D95A2B] transition">
+                <i class="bi bi-arrow-left"></i>
+                <span>Bosh sahifaga qaytish</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="w-full max-w-md mx-auto px-4 py-8">
+        <div class="bg-white rounded-2xl border border-[rgba(31,27,22,0.08)] p-6 sm:p-8 shadow-card">
+            
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 rounded-xl bg-[#FAF7F0] border border-[rgba(31,27,22,0.08)] flex items-center justify-center mx-auto mb-3">
+                    <img src="./images/teztaom_symbol_tight.png" alt="TezTaom" class="w-7 h-7 object-contain">
+                </div>
+                <h1 class="text-xl sm:text-2xl font-semibold text-[#1F1B16]">Tizimga kirish</h1>
+                <p class="text-xs sm:text-sm text-[#7B7266] mt-1">Sevimli milliy taomlaringizni buyurtma qiling</p>
+            </div>
+
+            <div id="loginAlert" class="hidden mb-4 p-3 rounded-lg text-xs font-medium"></div>
+
+            <form id="loginForm" onsubmit="handleLoginSubmit(event)" class="space-y-4">
+                <div>
+                    <label for="loginPhone" class="block text-xs font-medium text-[#5E554A] mb-1.5">Telefon raqam</label>
+                    <div class="relative">
+                        <i class="bi bi-telephone absolute left-3.5 top-1/2 -translate-y-1/2 text-[#7B7266] text-xs"></i>
+                        <input
+                            type="tel"
+                            id="loginPhone"
+                            required
+                            placeholder="+998 (90) 123-45-67"
+                            class="w-full bg-[#FAF7F0] border border-[rgba(31,27,22,0.08)] rounded-lg pl-9 pr-3.5 py-2.5 text-sm text-[#1F1B16] placeholder-[#968E82] focus:outline-none focus:border-[#D95A2B] focus:bg-white transition"
+                        >
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex items-center justify-between mb-1.5">
+                        <label for="loginPassword" class="block text-xs font-medium text-[#5E554A]">Parol</label>
+                        <a href="javascript:void(0)" onclick="forgotPasswordNotice()" class="text-[11px] text-[#D95A2B] hover:underline">Unutdingizmi?</a>
+                    </div>
+                    <div class="relative">
+                        <i class="bi bi-lock absolute left-3.5 top-1/2 -translate-y-1/2 text-[#7B7266] text-xs"></i>
+                        <input
+                            type="password"
+                            id="loginPassword"
+                            required
+                            placeholder="Parolingizni kiriting"
+                            class="w-full bg-[#FAF7F0] border border-[rgba(31,27,22,0.08)] rounded-lg pl-9 pr-10 py-2.5 text-sm text-[#1F1B16] placeholder-[#968E82] focus:outline-none focus:border-[#D95A2B] focus:bg-white transition"
+                        >
+                        <button
+                            type="button"
+                            onclick="togglePasswordVisibility('loginPassword', 'loginPasswordToggleIcon')"
+                            class="absolute right-3 top-1/2 -translate-y-1/2 text-[#7B7266] hover:text-[#1F1B16] p-1 text-xs"
+                        >
+                            <i id="loginPasswordToggleIcon" class="bi bi-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between text-xs pt-1">
+                    <label class="flex items-center gap-2 cursor-pointer text-[#5E554A]">
+                        <input type="checkbox" id="rememberMe" checked class="rounded border-gray-300 text-[#D95A2B] focus:ring-[#D95A2B]">
+                        <span>Meni eslab qol</span>
+                    </label>
+                </div>
+
+                <button
+                    type="submit"
+                    class="w-full btn-primary py-2.5 text-sm font-semibold flex items-center justify-center gap-2 mt-2 shadow-xs cursor-pointer"
+                >
+                    <span>Kirish</span>
+                    <i class="bi bi-arrow-right text-xs"></i>
+                </button>
+            </form>
+
+            <div class="relative my-6">
+                <div class="absolute inset-0 flex items-center">
+                    <div class="w-full border-t border-[rgba(31,27,22,0.08)]"></div>
+                </div>
+                <div class="relative flex justify-center text-xs">
+                    <span class="bg-white px-3 text-[#968E82]">yoki</span>
+                </div>
+            </div>
+
+            <button
+                type="button"
+                onclick="quickDemoLogin()"
+                class="w-full bg-[#FAF7F0] hover:bg-[#EFE9DF] text-[#1F1B16] border border-[rgba(31,27,22,0.08)] rounded-lg py-2.5 px-4 text-xs font-medium flex items-center justify-center gap-2.5 transition cursor-pointer"
+            >
+                <div class="w-5 h-5 rounded-full bg-[#173B2D] text-white text-[10px] font-bold flex items-center justify-center">JR</div>
+                <span>Jasur Rahimov (Test hisobi) sifatida kirish</span>
+            </button>
+
+            <p class="text-center text-xs text-[#7B7266] mt-6">
+                Hisobingiz yo'qmi?
+                <a href="register.html" class="text-[#D95A2B] font-semibold hover:underline ml-1">Ro'yxatdan o'tish</a>
+            </p>
+
+        </div>
+    </main>
+
+    <footer class="w-full max-w-[1140px] mx-auto px-4 py-6 text-center text-xs text-[#7B7266]">
+        <p>&copy; 2026 TezTaom. Barcha huquqlar himoyalangan.</p>
+    </footer>
+
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="./js/data.js"></script>
+    <script src="./js/main.js"></script>
+    <script>
+        function togglePasswordVisibility(inputId, iconId) {
+            const input = document.getElementById(inputId);
+            const icon = document.getElementById(iconId);
+            if (!input || !icon) return;
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.className = 'bi bi-eye-slash';
+            } else {
+                input.type = 'password';
+                icon.className = 'bi bi-eye';
+            }
+        }
+
+        function forgotPasswordNotice() {
+            showToast("Parolni tiklash kodi SMS orqali yuboriladi", "info-circle");
+        }
+
+        function quickDemoLogin() {
+            const demoUser = {
+                name: "Jasur Rahimov",
+                phone: "+998 (90) 123-45-67",
+                email: "jasur@teztaom.uz",
+                role: "VIP Mijoz",
+                initials: "JR",
+                ordersCount: 4,
+                favsCount: 2
+            };
+            localStorage.setItem('teztaom_current_user', JSON.stringify(demoUser));
+            showToast("Jasur Rahimov hisobiga kirildi!", "check-circle");
+            setTimeout(() => {
+                const params = new URLSearchParams(window.location.search);
+                const redirect = params.get('redirect') || 'index.html';
+                window.location.href = redirect;
+            }, 800);
+        }
+
+        function handleLoginSubmit(event) {
+            event.preventDefault();
+            const phone = document.getElementById('loginPhone').value.trim();
+            const password = document.getElementById('loginPassword').value;
+            const alertBox = document.getElementById('loginAlert');
+
+            if (!phone || !password) {
+                alertBox.className = 'mb-4 p-3 rounded-lg text-xs font-medium bg-red-50 text-red-700 border border-red-200 block';
+                alertBox.textContent = "Iltimos, telefon raqami va parolingizni kiriting.";
+                return;
+            }
+
+            let users = [];
+            try {
+                users = JSON.parse(localStorage.getItem('teztaom_registered_users') || '[]');
+            } catch (e) {
+                users = [];
+            }
+
+            const cleanPhone = phone.replace(/\D/g, '');
+            const existingUser = users.find(u => (u.phone || '').replace(/\D/g, '') === cleanPhone);
+
+            let loggedInUser;
+            if (existingUser) {
+                if (existingUser.password && existingUser.password !== password) {
+                    alertBox.className = 'mb-4 p-3 rounded-lg text-xs font-medium bg-red-50 text-red-700 border border-red-200 block';
+                    alertBox.textContent = "Kiritilgan parol noto'g'ri. Iltimos qayta urinib ko'ring.";
+                    return;
+                }
+                loggedInUser = existingUser;
+            } else {
+                const nameParts = phone.split(' ');
+                const cleanName = "Foydalanuvchi";
+                loggedInUser = {
+                    name: cleanName,
+                    phone: phone,
+                    initials: cleanName.charAt(0),
+                    role: "Yangi Mijoz",
+                    ordersCount: 0,
+                    favsCount: 0
+                };
+            }
+
+            localStorage.setItem('teztaom_current_user', JSON.stringify(loggedInUser));
+            alertBox.className = 'mb-4 p-3 rounded-lg text-xs font-medium bg-emerald-50 text-emerald-800 border border-emerald-200 block';
+            alertBox.textContent = "Muvaffaqiyatli kirildi! Bosh sahifaga yo'naltirilmoqda...";
+
+            setTimeout(() => {
+                const params = new URLSearchParams(window.location.search);
+                const redirect = params.get('redirect') || 'index.html';
+                window.location.href = redirect;
+            }, 700);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const user = getCurrentUser();
+            if (user) {
+                const params = new URLSearchParams(window.location.search);
+                const redirect = params.get('redirect') || 'profil.html';
+                window.location.href = redirect;
+            }
+        });
+    </script>
+</body>
+</html>

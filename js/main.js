@@ -1,9 +1,82 @@
 
 const STORAGE_CART_KEY = 'teztaom_cart_items';
 const STORAGE_FAVS_KEY = 'teztaom_favorites';
+const STORAGE_USER_KEY = 'teztaom_current_user';
 
 let cart = [];
 let favorites = [];
+
+function getCurrentUser() {
+  try {
+    const raw = localStorage.getItem(STORAGE_USER_KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch (e) {
+    return null;
+  }
+}
+
+function logoutUser() {
+  localStorage.removeItem(STORAGE_USER_KEY);
+  updateHeaderAuth();
+  showToast("Hisobdan chiqildi", "box-arrow-right");
+  if (window.location.pathname.includes('profil.html')) {
+    setTimeout(() => {
+      window.location.href = 'index.html';
+    }, 600);
+  }
+}
+
+function updateHeaderAuth() {
+  const user = getCurrentUser();
+  const containers = document.querySelectorAll('.header-auth-container');
+  containers.forEach(container => {
+    if (!user) {
+      container.innerHTML = `
+        <div class="flex items-center gap-1.5 sm:gap-2">
+          <a href="login.html" class="px-2.5 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold text-[#173B2D] hover:text-[#D95A2B] hover:bg-white/80 rounded-lg transition whitespace-nowrap">Kirish</a>
+          <a href="register.html" class="btn-primary text-xs sm:text-sm font-semibold px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-lg whitespace-nowrap shadow-xs">Ro'yxatdan o'tish</a>
+        </div>
+      `;
+    } else {
+      container.innerHTML = `
+        <div class="flex items-center gap-1.5 sm:gap-2">
+          <a href="profil.html" class="flex items-center gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-white border border-[#E8EDE9] text-xs font-semibold text-[#173B2D] hover:border-[#D95A2B] transition shadow-xs" title="${user.name}">
+            <span class="w-6 h-6 rounded-full bg-[#DEEADC] text-[#173B2D] flex items-center justify-center font-bold text-[11px]">${user.initials || 'U'}</span>
+            <span class="hidden md:inline max-w-[90px] truncate">${user.name}</span>
+          </a>
+          <button onclick="logoutUser()" title="Chiqish" class="w-8 h-8 rounded-lg bg-white border border-[#E8EDE9] flex items-center justify-center text-[#7B7266] hover:text-red-500 hover:bg-red-50 transition shadow-xs cursor-pointer">
+            <i class="bi bi-box-arrow-right text-xs"></i>
+          </button>
+        </div>
+      `;
+    }
+  });
+
+  const mobileContainers = document.querySelectorAll('.mobile-auth-container');
+  mobileContainers.forEach(container => {
+    if (!user) {
+      container.innerHTML = `
+        <div class="p-3 bg-white rounded-xl border border-gray-100 flex flex-col gap-2 mb-3">
+          <a href="register.html" class="btn-primary text-center py-2 text-xs font-semibold rounded-lg">Ro'yxatdan o'tish</a>
+          <a href="login.html" class="text-center py-1.5 text-xs font-semibold text-[#173B2D] hover:text-[#D95A2B]">Tizimga kirish</a>
+        </div>
+      `;
+    } else {
+      container.innerHTML = `
+        <div class="p-3 bg-white rounded-xl border border-gray-100 flex items-center justify-between gap-3 mb-3">
+          <a href="profil.html" class="flex items-center gap-2.5 min-w-0">
+            <div class="w-8 h-8 rounded-full bg-[#DEEADC] text-[#173B2D] font-bold text-xs flex items-center justify-center shrink-0">${user.initials || 'U'}</div>
+            <div class="min-w-0">
+              <div class="font-bold text-xs truncate text-[#173B2D]">${user.name}</div>
+              <div class="text-[10px] text-[#7B7266] truncate">${user.phone || ''}</div>
+            </div>
+          </a>
+          <button onclick="logoutUser()" class="text-xs text-red-500 font-semibold px-2 py-1 hover:bg-red-50 rounded-lg cursor-pointer">Chiqish</button>
+        </div>
+      `;
+    }
+  });
+}
 
 function loadStorage() {
   try {
@@ -334,6 +407,7 @@ function handleHeaderSearch(event) {
 document.addEventListener('DOMContentLoaded', () => {
   loadStorage();
   updateCartBadges();
+  updateHeaderAuth();
 
   const cartBtns = document.querySelectorAll('.open-cart-btn');
   cartBtns.forEach(btn => {
