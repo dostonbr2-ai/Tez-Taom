@@ -32,19 +32,19 @@ function updateHeaderAuth() {
   containers.forEach(container => {
     if (!user) {
       container.innerHTML = `
-        <div class="flex items-center gap-1.5 sm:gap-2">
-          <a href="login.html" class="px-2.5 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold text-[#173B2D] hover:text-[#D95A2B] hover:bg-white/80 rounded-lg transition whitespace-nowrap">Kirish</a>
-          <a href="register.html" class="btn-primary text-xs sm:text-sm font-semibold px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-lg whitespace-nowrap shadow-xs">Ro'yxatdan o'tish</a>
+        <div class="flex items-center gap-1 sm:gap-1.5 shrink-0">
+          <a href="login.html" class="px-2 sm:px-2.5 py-1.5 text-xs sm:text-sm font-semibold text-[#173B2D] hover:text-[#D95A2B] hover:bg-white/80 rounded-lg transition whitespace-nowrap">Kirish</a>
+          <a href="register.html" class="btn-primary text-xs sm:text-sm font-semibold px-2.5 sm:px-3.5 py-1.5 rounded-lg whitespace-nowrap shadow-xs">Ro'yxatdan o'tish</a>
         </div>
       `;
     } else {
       container.innerHTML = `
-        <div class="flex items-center gap-1.5 sm:gap-2">
-          <a href="profil.html" class="flex items-center gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-white border border-[#E8EDE9] text-xs font-semibold text-[#173B2D] hover:border-[#D95A2B] transition shadow-xs" title="${user.name}">
-            <span class="w-6 h-6 rounded-full bg-[#DEEADC] text-[#173B2D] flex items-center justify-center font-bold text-[11px]">${user.initials || 'U'}</span>
-            <span class="hidden md:inline max-w-[90px] truncate">${user.name}</span>
+        <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+          <a href="profil.html" class="flex items-center gap-1.5 px-2 py-1 sm:px-2.5 sm:py-1.5 rounded-lg bg-white border border-[#E8EDE9] text-xs font-semibold text-[#173B2D] hover:border-[#D95A2B] transition shadow-xs" title="${user.name}">
+            <span class="w-6 h-6 rounded-full bg-[#DEEADC] text-[#173B2D] flex items-center justify-center font-bold text-[10px] shrink-0">${user.initials || 'U'}</span>
+            <span class="hidden xl:inline max-w-[85px] 2xl:max-w-[110px] truncate">${user.name}</span>
           </a>
-          <button onclick="logoutUser()" title="Chiqish" class="w-8 h-8 rounded-lg bg-white border border-[#E8EDE9] flex items-center justify-center text-[#7B7266] hover:text-red-500 hover:bg-red-50 transition shadow-xs cursor-pointer">
+          <button onclick="logoutUser()" title="Chiqish" class="w-8 h-8 rounded-lg bg-white border border-[#E8EDE9] flex items-center justify-center text-[#7B7266] hover:text-red-500 hover:bg-red-50 transition shadow-xs cursor-pointer shrink-0">
             <i class="bi bi-box-arrow-right text-xs"></i>
           </button>
         </div>
