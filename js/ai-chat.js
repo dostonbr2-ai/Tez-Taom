@@ -133,8 +133,8 @@ function renderChatMessages() {
                 <span class="text-[10px] text-[#7A9185] block truncate mt-0.5">${dish.shortDesc}</span>
                 <div class="text-xs font-black text-[#173B2D] mt-1">${dish.price.toLocaleString("uz-UZ")} so'm</div>
               </div>
-              <button onclick="addToCart(${dish.id}); showToast('${safeTitle} savatchaga qo\\'shildi!', 'bag-check');" class="btn-circle-add w-8 h-8 text-sm shrink-0 shadow-xs" title="Savatchaga qo'shish">
-                +
+              <button onclick="addToCart(${dish.id})" class="btn-circle-add w-8 h-8 text-sm shrink-0 shadow-xs" title="Savatchaga qo'shish">
+                <i class="bi bi-plus-lg text-xs"></i>
               </button>
             </div>
           `;

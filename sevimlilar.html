@@ -411,8 +411,8 @@
                             </div>
                             <div class="flex items-center justify-between pt-2">
                                 <span class="text-lg font-extrabold text-[#173B2D]">${dish.price.toLocaleString('uz-UZ')} so'm</span>
-                                <button onclick="addToCart(${dish.id}); showToast('${dish.title.replace(/'/g, "\\'")} savatga qo\\'shildi!', 'bag-check');" class="btn-circle-add shadow-xs" title="Savatchaga qo'shish">
-                                    <span class="text-xl font-bold leading-none">+</span>
+                                <button onclick="addToCart(${dish.id})" class="btn-circle-add shadow-xs" title="Savatchaga qo'shish">
+                                    <i class="bi bi-plus-lg text-sm"></i>
                                 </button>
                             </div>
                         </div>

@@ -403,6 +403,9 @@
                                     ${dish.badge}
                                 </span>
                             ` : ''}
+                            <button onclick="toggleFavorite(${dish.id}, event)" class="fav-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-white/95 backdrop-blur-xs flex items-center justify-center text-gray-400 hover:text-[#D95A2B] hover:scale-110 transition shadow-xs cursor-pointer z-10" data-dish-id="${dish.id}" title="Sevimlilarga qo'shish">
+                                <i class="bi ${favorites.includes(dish.id) ? 'bi-heart-fill text-[#D95A2B]' : 'bi-heart text-[#7B7266]'} text-sm"></i>
+                            </button>
                             <div class="absolute bottom-3 right-3 bg-white/95 backdrop-blur-xs text-[#173B2D] text-xs font-bold px-2.5 py-1 rounded-full shadow-xs flex items-center gap-1">
                                 <span class="text-[#F07B36] text-[11px]">★</span>
                                 <span>${dish.rating}</span>
@@ -426,11 +429,12 @@
                     <div class="flex items-center justify-between pt-2">
                         <span class="text-lg font-extrabold text-[#173B2D]">${formatPrice(dish.price)}</span>
                         <button onclick="addToCart(${dish.id})" class="btn-circle-add shadow-xs" title="Savatchaga qo'shish">
-                            <span class="text-xl font-bold leading-none">+</span>
+                            <i class="bi bi-plus-lg text-sm"></i>
                         </button>
                     </div>
                 </div>
             `).join('');
+            if (typeof updateFavoritesUI === 'function') updateFavoritesUI();
         }
 
         function setMenuCategory(catName, btnEl) {

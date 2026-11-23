@@ -100,13 +100,63 @@ function saveCart() {
 
 function saveFavorites() {
   localStorage.setItem(STORAGE_FAVS_KEY, JSON.stringify(favorites));
+  updateFavoritesUI();
+}
+
+function updateFavoritesUI() {
+  const favBadge = document.getElementById('favoritesBadge');
+  if (favBadge) {
+    favBadge.textContent = favorites.length;
+    if (favorites.length > 0) {
+      favBadge.classList.remove('hidden');
+    } else {
+      favBadge.classList.add('hidden');
+    }
+  }
+
+  const favBtns = document.querySelectorAll('.fav-btn');
+  favBtns.forEach(btn => {
+    const id = Number(btn.getAttribute('data-dish-id'));
+    const isFav = favorites.includes(id);
+    const icon = btn.querySelector('i');
+    if (icon) {
+      if (isFav) {
+        icon.className = 'bi bi-heart-fill text-sm text-[#D95A2B]';
+        btn.classList.add('is-favorite');
+      } else {
+        icon.className = 'bi bi-heart text-sm text-[#7B7266]';
+        btn.classList.remove('is-favorite');
+      }
+    }
+  });
+}
+
+function toggleFavorite(dishId, event) {
+  if (event) {
+    event.stopPropagation();
+    event.preventDefault();
+  }
+  const id = Number(dishId);
+  const index = favorites.indexOf(id);
+  const dish = (typeof TEZTAOM_DISHES !== 'undefined') ? TEZTAOM_DISHES.find(d => d.id === id) : null;
+  const title = dish ? dish.title : "Taom";
+
+  if (index > -1) {
+    favorites.splice(index, 1);
+    saveFavorites();
+    showToast(`"${title}" sevimlilardan o'chirildi`, "heart");
+  } else {
+    favorites.push(id);
+    saveFavorites();
+    showToast(`"${title}" sevimlilarga qo'shildi!`, "heart-fill");
+  }
 }
 
 function formatPrice(num) {
   return Number(num).toLocaleString('uz-UZ') + " so'm";
 }
 
-function addToCart(dishId, qty = 1) {
+function addToCart(dishId, qty = 1, silent = false) {
   const dish = TEZTAOM_DISHES.find(d => d.id === Number(dishId));
   if (!dish) return;
 
@@ -125,7 +175,9 @@ function addToCart(dishId, qty = 1) {
   }
 
   saveCart();
-  showToast(`"${dish.title}" savatchaga qo'shildi!`, "check-circle");
+  if (!silent) {
+    showToast(`"${dish.title}" savatchaga qo'shildi!`, "check-circle");
+  }
 
   const badges = document.querySelectorAll('.cart-badge');
   badges.forEach(b => {
@@ -290,6 +342,9 @@ function showToast(message, icon = 'check-circle') {
     document.body.appendChild(container);
   }
 
+  const existingToasts = container.querySelectorAll('.toast-item');
+  existingToasts.forEach(t => t.remove());
+
   const toast = document.createElement('div');
   toast.className = 'toast-item';
   toast.innerHTML = `
@@ -387,7 +442,7 @@ function processAiRecommendation(e) {
 }
 
 function addAiComboToCart(ids) {
-  ids.forEach(id => addToCart(id, 1));
+  ids.forEach(id => addToCart(id, 1, true));
   closeAiModal();
   openCartDrawer();
   showToast("AI taklifi savatchaga to'liq qo'shildi!", "magic");
@@ -407,6 +462,7 @@ function handleHeaderSearch(event) {
 document.addEventListener('DOMContentLoaded', () => {
   loadStorage();
   updateCartBadges();
+  updateFavoritesUI();
   updateHeaderAuth();
 
   const cartBtns = document.querySelectorAll('.open-cart-btn');

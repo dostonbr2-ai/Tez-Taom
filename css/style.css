@@ -128,12 +128,32 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 50%;
   background-color: var(--color-primary);
   color: #ffffff;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   transition: background-color 0.15s ease, transform 0.15s ease;
   cursor: pointer;
   border: none;
+  padding: 0;
+  line-height: 1;
+}
+
+.btn-circle-add i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  font-size: 15px;
+}
+
+.btn-circle-add span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: -2.5px;
 }
 
 .btn-circle-add:hover {

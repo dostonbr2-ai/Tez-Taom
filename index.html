@@ -283,12 +283,16 @@
                 <div class="food-card p-4 flex flex-col justify-between" data-category="Milliy taomlar Go'shtli">
                     <div>
 
-                        <div class="food-card-img-wrapper relative h-48 w-full">
+                        <div class="food-card-img-wrapper relative h-48 w-full cursor-pointer" onclick="goToDetail(1)">
                             <img src="./images/dish1_toy_oshi.jpg" alt="To'y oshi" class="w-full h-full object-cover">
 
                             <span class="absolute top-3 left-3 bg-[#F07B36] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-xs">
                                 OMMABOP
                             </span>
+
+                            <button onclick="toggleFavorite(1, event)" class="fav-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-white/95 backdrop-blur-xs flex items-center justify-center text-gray-400 hover:text-[#D95A2B] hover:scale-110 transition shadow-xs cursor-pointer z-10" data-dish-id="1" title="Sevimlilarga qo'shish">
+                                <i class="bi bi-heart text-sm"></i>
+                            </button>
 
                             <div class="absolute bottom-3 right-3 bg-white/95 backdrop-blur-xs text-[#173B2D] text-xs font-bold px-2.5 py-1 rounded-full shadow-xs flex items-center gap-1">
                                 <span class="text-[#F07B36] text-[11px]">★</span>
@@ -313,18 +317,21 @@
                     <div class="flex items-center justify-between pt-2">
                         <span class="text-lg font-extrabold text-[#173B2D]">48,000 so'm</span>
                         <button onclick="addToCart(1)" class="btn-circle-add shadow-xs" title="Savatchaga qo'shish">
-                            <span class="text-xl font-bold leading-none">+</span>
+                            <i class="bi bi-plus-lg text-sm"></i>
                         </button>
                     </div>
                 </div>
 
                 <div class="food-card p-4 flex flex-col justify-between" data-category="Go'shtli Milliy taomlar">
                     <div>
-                        <div class="food-card-img-wrapper relative h-48 w-full">
+                        <div class="food-card-img-wrapper relative h-48 w-full cursor-pointer" onclick="goToDetail(2)">
                             <img src="./images/dish2_qozon_kabob.jpg" alt="Qozon kabob" class="w-full h-full object-cover">
                             <span class="absolute top-3 left-3 bg-[#F07B36] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-xs">
                                 OMMABOP
                             </span>
+                            <button onclick="toggleFavorite(2, event)" class="fav-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-white/95 backdrop-blur-xs flex items-center justify-center text-gray-400 hover:text-[#D95A2B] hover:scale-110 transition shadow-xs cursor-pointer z-10" data-dish-id="2" title="Sevimlilarga qo'shish">
+                                <i class="bi bi-heart text-sm"></i>
+                            </button>
                             <div class="absolute bottom-3 right-3 bg-white/95 backdrop-blur-xs text-[#173B2D] text-xs font-bold px-2.5 py-1 rounded-full shadow-xs flex items-center gap-1">
                                 <span class="text-[#F07B36] text-[11px]">★</span>
                                 <span>4.8</span>
@@ -348,15 +355,18 @@
                     <div class="flex items-center justify-between pt-2">
                         <span class="text-lg font-extrabold text-[#173B2D]">62,000 so'm</span>
                         <button onclick="addToCart(2)" class="btn-circle-add shadow-xs" title="Savatchaga qo'shish">
-                            <span class="text-xl font-bold leading-none">+</span>
+                            <i class="bi bi-plus-lg text-sm"></i>
                         </button>
                     </div>
                 </div>
 
                 <div class="food-card p-4 flex flex-col justify-between" data-category="Milliy taomlar Go'shtli">
                     <div>
-                        <div class="food-card-img-wrapper relative h-48 w-full">
+                        <div class="food-card-img-wrapper relative h-48 w-full cursor-pointer" onclick="goToDetail(3)">
                             <img src="./images/dish3_uygur_lagmoni.jpg" alt="Uyg'ur lag'moni" class="w-full h-full object-cover">
+                            <button onclick="toggleFavorite(3, event)" class="fav-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-white/95 backdrop-blur-xs flex items-center justify-center text-gray-400 hover:text-[#D95A2B] hover:scale-110 transition shadow-xs cursor-pointer z-10" data-dish-id="3" title="Sevimlilarga qo'shish">
+                                <i class="bi bi-heart text-sm"></i>
+                            </button>
                             <div class="absolute bottom-3 right-3 bg-white/95 backdrop-blur-xs text-[#173B2D] text-xs font-bold px-2.5 py-1 rounded-full shadow-xs flex items-center gap-1">
                                 <span class="text-[#F07B36] text-[11px]">★</span>
                                 <span>4.7</span>
@@ -380,15 +390,18 @@
                     <div class="flex items-center justify-between pt-2">
                         <span class="text-lg font-extrabold text-[#173B2D]">42,000 so'm</span>
                         <button onclick="addToCart(3)" class="btn-circle-add shadow-xs" title="Savatchaga qo'shish">
-                            <span class="text-xl font-bold leading-none">+</span>
+                            <i class="bi bi-plus-lg text-sm"></i>
                         </button>
                     </div>
                 </div>
 
                 <div class="food-card p-4 flex flex-col justify-between" data-category="Milliy taomlar Go'shtli">
                     <div>
-                        <div class="food-card-img-wrapper relative h-48 w-full">
+                        <div class="food-card-img-wrapper relative h-48 w-full cursor-pointer" onclick="goToDetail(4)">
                             <img src="./images/dish4_manti.jpg" alt="Manti" class="w-full h-full object-cover">
+                            <button onclick="toggleFavorite(4, event)" class="fav-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-white/95 backdrop-blur-xs flex items-center justify-center text-gray-400 hover:text-[#D95A2B] hover:scale-110 transition shadow-xs cursor-pointer z-10" data-dish-id="4" title="Sevimlilarga qo'shish">
+                                <i class="bi bi-heart text-sm"></i>
+                            </button>
                             <div class="absolute bottom-3 right-3 bg-white/95 backdrop-blur-xs text-[#173B2D] text-xs font-bold px-2.5 py-1 rounded-full shadow-xs flex items-center gap-1">
                                 <span class="text-[#F07B36] text-[11px]">★</span>
                                 <span>4.9</span>
@@ -412,15 +425,18 @@
                     <div class="flex items-center justify-between pt-2">
                         <span class="text-lg font-extrabold text-[#173B2D]">38,000 so'm</span>
                         <button onclick="addToCart(4)" class="btn-circle-add shadow-xs" title="Savatchaga qo'shish">
-                            <span class="text-xl font-bold leading-none">+</span>
+                            <i class="bi bi-plus-lg text-sm"></i>
                         </button>
                     </div>
                 </div>
 
                 <div class="food-card p-4 flex flex-col justify-between" data-category="Salatlar">
                     <div>
-                        <div class="food-card-img-wrapper relative h-48 w-full">
+                        <div class="food-card-img-wrapper relative h-48 w-full cursor-pointer" onclick="goToDetail(5)">
                             <img src="./images/dish5_bahor_salati.jpg" alt="Bahor salati" class="w-full h-full object-cover">
+                            <button onclick="toggleFavorite(5, event)" class="fav-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-white/95 backdrop-blur-xs flex items-center justify-center text-gray-400 hover:text-[#D95A2B] hover:scale-110 transition shadow-xs cursor-pointer z-10" data-dish-id="5" title="Sevimlilarga qo'shish">
+                                <i class="bi bi-heart text-sm"></i>
+                            </button>
                             <div class="absolute bottom-3 right-3 bg-white/95 backdrop-blur-xs text-[#173B2D] text-xs font-bold px-2.5 py-1 rounded-full shadow-xs flex items-center gap-1">
                                 <span class="text-[#F07B36] text-[11px]">★</span>
                                 <span>4.6</span>
@@ -444,15 +460,18 @@
                     <div class="flex items-center justify-between pt-2">
                         <span class="text-lg font-extrabold text-[#173B2D]">27,000 so'm</span>
                         <button onclick="addToCart(5)" class="btn-circle-add shadow-xs" title="Savatchaga qo'shish">
-                            <span class="text-xl font-bold leading-none">+</span>
+                            <i class="bi bi-plus-lg text-sm"></i>
                         </button>
                     </div>
                 </div>
 
                 <div class="food-card p-4 flex flex-col justify-between" data-category="Sho'rvalar">
                     <div>
-                        <div class="food-card-img-wrapper relative h-48 w-full">
+                        <div class="food-card-img-wrapper relative h-48 w-full cursor-pointer" onclick="goToDetail(6)">
                             <img src="./images/dish6_mastava.jpg" alt="Mastava" class="w-full h-full object-cover">
+                            <button onclick="toggleFavorite(6, event)" class="fav-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-white/95 backdrop-blur-xs flex items-center justify-center text-gray-400 hover:text-[#D95A2B] hover:scale-110 transition shadow-xs cursor-pointer z-10" data-dish-id="6" title="Sevimlilarga qo'shish">
+                                <i class="bi bi-heart text-sm"></i>
+                            </button>
                             <div class="absolute bottom-3 right-3 bg-white/95 backdrop-blur-xs text-[#173B2D] text-xs font-bold px-2.5 py-1 rounded-full shadow-xs flex items-center gap-1">
                                 <span class="text-[#F07B36] text-[11px]">★</span>
                                 <span>4.8</span>
@@ -476,7 +495,7 @@
                     <div class="flex items-center justify-between pt-2">
                         <span class="text-lg font-extrabold text-[#173B2D]">32,000 so'm</span>
                         <button onclick="addToCart(6)" class="btn-circle-add shadow-xs" title="Savatchaga qo'shish">
-                            <span class="text-xl font-bold leading-none">+</span>
+                            <i class="bi bi-plus-lg text-sm"></i>
                         </button>
                     </div>
                 </div>
